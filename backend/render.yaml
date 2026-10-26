@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: trasexp-backend
+    env: docker
+    dockerContext: .
+    dockerfilePath: Dockerfile
+    plan: free
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: SUPABASE_DB_URL
+        sync: false
+      - key: DB_POOL_SIZE
+        value: "5"
+      - key: DB_SCHEMA
+        value: monetraq
+      - key: ALLOWED_ORIGINS
+        value: https://trasexp.vercel.app,https://trasexp.vercel.app/
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRATION
+        value: "86400000"

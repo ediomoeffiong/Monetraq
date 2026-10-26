@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap');
+
+:root {
+  /* Brand Colors */
+  --primary-color: #2563EB;
+  /* Royal Blue */
+  --primary-hover: #1D4ED8;
+  --secondary-color: #64748B;
+
+  /* Status Colors */
+  --success-color: #10B981;
+  --danger-color: #EF4444;
+  --warning-color: #F59E0B;
+
+  /* Backgrounds & Surfaces */
+  --bg-page: #F8FAFC;
+  /* Slate 50 */
+  --bg-surface: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-input: #F1F5F9;
+
+  /* Text Colors */
+  --text-main: #0F172A;
+  /* Slate 900 */
+  --text-secondary: #475569;
+  /* Slate 600 */
+  --text-muted: #94A3B8;
+
+  /* Borders & Shadows */
+  --border-color: #E2E8F0;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Typography */
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Outfit', system-ui, sans-serif;
+
+  /* Spacing & Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+
+  /* Nav & Interactive */
+  --bg-nav: rgba(255, 255, 255, 0.8);
+  --border-nav: rgba(0, 0, 0, 0.05);
+  --nav-hover-bg: rgba(0, 0, 0, 0.05);
+  --nav-active-bg: #FFFFFF;
+  --nav-pill-bg: rgba(0, 0, 0, 0.03);
+  --focus-glow: rgba(37, 99, 235, 0.1);
+}
+
+[data-theme='dark'] {
+  --bg-page: #0B1220;
+  --bg-surface: #111827;
+  --bg-card: #111827;
+  --bg-input: #1F2937;
+  --text-main: #F9FAFB;
+  --text-secondary: #D1D5DB;
+  --text-muted: #9CA3AF;
+  --border-color: #374151;
+
+  --success-light: rgba(16, 185, 129, 0.15);
+  --danger-light: rgba(239, 68, 68, 0.15);
+  --warning-light: rgba(245, 158, 11, 0.15);
+  --warning-color: #F59E0B;
+  --primary-light: rgba(37, 99, 235, 0.15);
+  --info-light: rgba(94, 114, 228, 0.15);
+  --bg-nav: #111827;
+  --border-nav: rgba(255, 255, 255, 0.08);
+  --nav-hover-bg: rgba(255, 255, 255, 0.08);
+  --nav-active-bg: #1F2937;
+  --nav-pill-bg: rgba(255, 255, 255, 0.05);
+  --focus-glow: rgba(37, 99, 235, 0.35);
+
+  /* Sidebar Specific */
+  --sidebar-hover: #1F2937;
+  --sidebar-active-bg: rgba(37, 99, 235, 0.1);
+  --sidebar-active-text: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-warning {
+  color: var(--warning-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  margin-top: 0;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+  color: var(--text-main);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+}
+
+select option {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+}
+
+[data-theme='dark'] input,
+[data-theme='dark'] select,
+[data-theme='dark'] textarea {
+  color: #FFFFFF;
+  background-color: var(--bg-input);
+}
+
+[data-theme='dark'] input:disabled,
+[data-theme='dark'] select:disabled,
+[data-theme='dark'] textarea:disabled {
+  color: #9CA3AF;
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

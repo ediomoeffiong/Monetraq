@@ -1,0 +1,57 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  datasource:
+    # Use the JDBC Session pooler URL copied from Supabase's Connect panel.
+    # It includes the database username/password and must end with sslmode=require.
+    url: "${SUPABASE_DB_URL}"
+    driverClassName: org.postgresql.Driver
+    hikari:
+      connection-timeout: 10000
+      validation-timeout: 5000
+      maximum-pool-size: ${DB_POOL_SIZE:5}
+      minimum-idle: 1
+
+  jackson:
+    mapper:
+      accept-case-insensitive-enums: true
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        default_schema: ${DB_SCHEMA:monetraq}
+
+  # Baseline an imported database that predates Flyway; fresh Supabase projects
+  # still run the migrations normally from version 1.
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 0
+    default-schema: ${DB_SCHEMA:monetraq}
+    schemas: ${DB_SCHEMA:monetraq}
+    create-schemas: true
+    locations: classpath:db/migration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+
+cors:
+  allowed-origins: ${ALLOWED_ORIGINS}
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION:86400000}  # Default 24 hours if not set

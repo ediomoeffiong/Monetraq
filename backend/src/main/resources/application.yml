@@ -1,0 +1,7 @@
+spring:
+  profiles:
+    active: dev
+
+jwt:
+  secret: trasexp-dev-secret-key-minimum-256-bits-for-hs256-algorithm-security
+  expiration: 86400000  # 24 hours in milliseconds

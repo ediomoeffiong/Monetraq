@@ -1,0 +1,13 @@
+target/
+.git/
+.vscode/
+.idea/
+*.iml
+HELP.md
+mvnw
+mvnw.cmd
+.mvn/
+.settings/
+.vercel/
+*.log
+*.txt

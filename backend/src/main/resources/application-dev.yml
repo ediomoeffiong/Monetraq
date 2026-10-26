@@ -1,0 +1,32 @@
+server:
+  port: 7070
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: covenant
+    password: password
+
+  jackson:
+    mapper:
+      accept-case-insensitive-enums: true
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    open-in-view: false  # ← added best practice
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+cors:
+  allowed-origins: http://localhost:3000,http://localhost:5173
+
+jwt:
+  secret: trasexp-dev-secret-key-minimum-256-bits-for-hs256-algorithm-security
+  expiration: 86400000  # 24 hours in milliseconds
+

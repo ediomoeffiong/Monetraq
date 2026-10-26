@@ -1,0 +1,28 @@
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Build and log files
+*.log
+build_*.txt
+compile_*.txt
+test_*.txt
+verification_*.txt
+curl_*.txt
+errors_*.txt
+payload.json
+
+# IDE
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
